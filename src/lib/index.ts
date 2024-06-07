@@ -1,1 +1,3 @@
-// Reexport your entry components here
+import Editor from './poucheditor.ts';
+
+export default Editor;

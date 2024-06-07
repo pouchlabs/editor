@@ -1,2 +1,145 @@
 @import "./styles/index.css";
+:root{
+    --brand: #0fdf99;
+    --onbrand:#fff;
+}
+.peditor{
+    background-color: var(--gray-3);
+    box-shadow: var(--shadow-6);
+    border-radius: 6px;
+    margin-block-start: 5px;
+    min-height: 50vh;
+    max-height: calc(100vh - 20px);
+    min-width: 200px;
+    width: 75%;
+    max-width: calc(100vw - 10px);
+    z-index: 50;
+    position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
+    & > *{
+        background-color: #ffffff;
+    }
+}
+:where(html.dark,body.dark) > * .peditor{
+     background-color: var(--gray-8) !important;
+     color: var(--gray-3);
+     & > *{
+        background-color: var(--gray-7) !important;
+      & > *{
+        background-color: var(--gray-7) !important;
+      }
+    }
+}
+.peditor.full{
+    width:100% !important;
+    height: 100% !important;
+    z-index: 10000 !important;
+}
+.pnav{
+    max-width: 40px;
+    min-width: 40px;
+    min-height: 100%;
+    position: relative;
+    border-radius: 2px;
+    box-shadow: var(--shadow-6);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+    text-align: center;
+}
+.brand{
+    background-color: var(--brand) !important;
+    color: var(--onbrand) !important;
+}
+.pbtn{
+    width: 30px;
+    height: 30px;
+    padding: 3px 3px;
+    margin: 4px auto;
+    border-radius: 50%;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    cursor: pointer; 
+    font-size: 1.5rem;
+    outline: 0;
+    border: 0;
+    transition: all 400ms;
+    position: relative;
+    display: inline;
+    &:hover span {
+        visibility: visible;
+        opacity: 0.7;
+        top: 30px;
+        left: 50%;
+        margin-left: -76px;
+        z-index: 999;
+      }
+.pbt span {
+    position: absolute;
+    width: 140px;
+    color: #FFFFFF;
+    background: #000000;
+    height: 96px;
+    line-height: 96px;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 8px;
+    box-shadow: 4px 3px 10px #121212;
+  }
+  .pbtn span:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+  }
+  
+
+.pcenter{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    margin-left: 4px;
+    margin-right: 4px;
+    flex-grow: 1;
+}
+.pheader{
+    width: 100%;
+    max-height: 40px;
+    min-height: 40px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+.pcont{
+    margin: 40px auto;
+    width: 70%;
+    max-width: 75%;
+    min-width: 180px;
+    height: auto;
+     
+}
+.pfooter{
+    width: 90%;
+    max-height: 40px;
+    min-height: 40px;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-3);
+    border-radius: 8px;
+    margin: 4px auto;
+}
 

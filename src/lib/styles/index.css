@@ -1,4 +1,3 @@
-@import 'props.media.css';
 @import 'props.fonts.css';
 @import 'props.sizes.css';
 @import 'props.easing.css';
@@ -9,3 +8,5 @@
 @import 'props.gradients.css';
 @import 'props.animations.css';
 @import 'props.borders.css';
+@import "font/bootstrap-icons.css";
+@import "hint.min.css";
