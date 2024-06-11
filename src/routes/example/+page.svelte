@@ -3,10 +3,12 @@
     import Editor from '$lib/index.ts';
     import "$lib/poucheditor.css";
     onMount(()=>{
-        let editor = new Editor({container:'.g'})
+        let editor = new Editor({container:'#g',appid:'hhh'})
         console.log(editor)
+    
+
     })
 
 </script>
-<div class="g"></div>
-<div class="g"></div>
+<div id="g" class="g"></div>
+<div  id="g" class="gj"></div>
