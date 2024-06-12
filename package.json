@@ -60,6 +60,7 @@
 		"jquery": "^3.7.1",
 		"lowdb": "^7.0.1",
 		"nanoid": "^5.0.7",
+		"sortablejs": "^1.15.2",
 		"valibot": "^0.31.0"
 	}
 }

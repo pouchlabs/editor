@@ -1,5 +1,6 @@
 import jq from 'jquery';
 import {nanoid} from "nanoid";
+import Sortable from 'sortablejs';
 import { checktype } from "./utils.ts";
 import {genParagraph} from "./blocks/paragraph.ts";
 function genHtml(){
@@ -45,34 +46,20 @@ export default class Poucheditor{
       let editors = this.$element;
       editors.append(genHtml())
      
-     if(document){
-        import("./plugins/dragula/dragula.min.js").then(drag=>{
-            dragula([document.querySelector(".pcont")],{
-  //   isContainer: function (el) {
-  //   return false; // only elements in drake.containers will be taken into account
-  // },
-  moves: function (el, source, handle, sibling) {
-    console.log(el,sibling,handle)
-    return true; // elements are always draggable by default
-  },
-   invalid: function (el, handle) {
-    return false; // don't prevent any drags from initiating by default
-  },
-  direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
-  copy: false,                       // elements are moved by default, not copied
-  copySortSource: false,             // elements in copy-source containers can be reordered
-  revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
-  removeOnSpill: false,              // spilling will `.remove` the element, if this is true
-  mirrorContainer: document.querySelector('.pcont'),    // set the element that gets mirror elements appended
-  ignoreInputTextSelection: true,     // allows users to select input text, see details below
-  slideFactorX: 0,               // allows users to select the amount of movement on the X axis before it is considered a drag instead of a click
-  slideFactorY: 0,
-            })
-            console.log('dra')
-        })
-      
-      }
-  
+    var sortable = Sortable.create(document.querySelector('.pcont'), {
+  group: "name",  // or { name: "...", pull: [true, false, 'clone', array], put: [true, false, array] }
+  sort: true,  // sorting inside list
+  delay: 0, // time in milliseconds to define when the sorting should start
+  delayOnTouchOnly: false, // only delay if user is using touch
+  touchStartThreshold: 0, // px, how many pixels the point should move before cancelling a delayed drag event
+  disabled: false, // Disables the sortable if set to true.
+  store: null,  // @see Store
+  animation: 150,  // ms, animation speed moving items when sorting, `0` — without animation
+  easing: "cubic-bezier(1, 0, 0, 1)",
+ // ghostClass: 'brand',
+ dragClass: "brand",
+  dragoverBubble: true,
+});
       //append buttons
       let btns = [{name:'paragraph',icon:"bi-paragraph",action:editors.append('hi')}]
       btns.forEach(btn=>{
